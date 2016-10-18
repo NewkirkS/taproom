@@ -13,9 +13,23 @@ import { Keg } from './keg.model';
   <li>{{currentKeg.abv}} % ABV</li>
   <li>{{currentKeg.pints}} pints left in keg</li>
   </ol>
+  <button (click)="editButtonHasBeenClicked(currentKeg)"
+  >Edit Keg</button>
+  <button (click)="sellPintButtonHasBeenClicked(currentKeg)"
+  >Sell a Pint</button>
   `
 })
 
 export class KegListComponent {
   @Input() childKegList: Keg[];
+  @Output() clickSender =
+  new EventEmitter();
+  @Output() clickSellSender =
+  new EventEmitter();
+  editButtonHasBeenClicked(kegToEdit: Keg) {
+    this.clickSender.emit(kegToEdit);
+  }
+  sellPintButtonHasBeenClicked(kegToEdit: Keg) {
+    this.clickSellSender.emit(kegToEdit);
+  }
 }

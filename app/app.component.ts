@@ -11,7 +11,13 @@ import { Keg } from './keg.model';
     ></new-keg>
     <keg-list
       [childKegList] ="masterKegList"
+      (clickSender)="showDetails($event)"
+      (clickSellSender)="sellPint($event)"
     ></keg-list>
+    <edit-keg
+      [childSelectedKeg]="selectedKeg"
+      (doneClickedSender)="finishedEditing()"
+    ></edit-keg>
   </div>
   `
 })
@@ -23,7 +29,18 @@ export class AppComponent {
     new Keg("Stout", "Rogue", 7, 5.9),
     new Keg("IPA", "Ninkasi", 7, 6.9),
   ]
+  selectedKeg: Keg = null;
+  showDetails(currentKeg) {
+    this.selectedKeg = currentKeg;
+  }
+  finishedEditing() {
+    this.selectedKeg = null;
+  }
   addKeg(newKeg: Keg) {
     this.masterKegList.push(newKeg);
+  }
+  sellPint(currentKeg) {
+    this.selectedKeg.pints = this.selectedKeg.pints - 1;
+    this.selectedKeg = null;
   }
 }
