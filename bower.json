@@ -1,0 +1,20 @@
+{
+  "name": "tapRoom",
+  "description": "template for angular projects",
+  "main": "",
+  "authors": [
+    "Garrett Price <garrettleeprice@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
