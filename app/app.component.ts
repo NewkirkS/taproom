@@ -40,7 +40,6 @@ export class AppComponent {
     this.masterKegList.push(newKeg);
   }
   sellPint(currentKeg) {
-    this.selectedKeg.pints = this.selectedKeg.pints - 1;
-    this.selectedKeg = null;
+    currentKeg.pints = currentKeg.pints - 1;
   }
 }
