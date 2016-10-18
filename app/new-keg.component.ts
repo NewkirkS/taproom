@@ -4,23 +4,24 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'new-keg',
   template: `
-    <h2>New Keg</h2>
+    <h3>New Keg</h3>
     <div>
       <label>Name:</label>
-      <input #newName>
+      <input class="form-control" #newName>
     </div>
     <div>
     <label>Brand:</label>
-    <input #newBrand>
+    <input class="form-control" #newBrand>
     </div>
     <div>
     <label>Price:</label>
-    <input type="number" #newPrice>
+    <input class="form-control" type="number" #newPrice>
     </div>
     <div>
     <label>ABV:</label>
-    <input type="number" #newABV>
-    <button (click)="
+    <input class="form-control" type="number" #newABV>
+    <br>
+    <button class="btn btn-danger" (click)="
       addKeg(newName.value, newBrand.value, newPrice.value, newABV.value);
       newName.value='';
       newBrand.value='';

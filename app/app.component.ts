@@ -5,19 +5,25 @@ import { Keg } from './keg.model';
   selector: 'my-app',
   template: `
   <div class="container">
-    <h1>Taproom</h1>
-    <new-keg
-      (newKegSender)="addKeg($event)"
-    ></new-keg>
-    <keg-list
-      [childKegList] ="masterKegList"
-      (clickSender)="showDetails($event)"
-      (clickSellSender)="sellPint($event)"
-    ></keg-list>
-    <edit-keg
-      [childSelectedKeg]="selectedKeg"
-      (doneClickedSender)="finishedEditing()"
-    ></edit-keg>
+    <h1>Keg Keeper</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <new-keg
+          (newKegSender)="addKeg($event)"
+        ></new-keg>
+        <edit-keg
+          [childSelectedKeg]="selectedKeg"
+          (doneClickedSender)="finishedEditing()"
+        ></edit-keg>
+      </div>
+      <div class="col-md-6">
+      <keg-list
+        [childKegList] ="masterKegList"
+        (clickSender)="showDetails($event)"
+        (clickSellSender)="sellPint($event)"
+      ></keg-list>
+      </div>
+    </div>
   </div>
   `
 })

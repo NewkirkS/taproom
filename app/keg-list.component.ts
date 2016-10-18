@@ -9,7 +9,7 @@ import { Keg } from './keg.model';
     <option value="underTen">Show Kegs w/ under 10 Pints</option>
     <option value="showAll" selected="selected">Show All Kegs</option>
   </select>
-  <div *ngFor="let currentKeg of childKegList | almostEmpty:selectedLevel">
+  <div class="rightCol" *ngFor="let currentKeg of childKegList | almostEmpty:selectedLevel">
   <h3 [ngClass]="{lessThanFive: currentKeg.price <= 5, greaterThanFive: currentKeg.price > 5 }">{{currentKeg.name}}</h3>
   <ol>
   <li> Brand - {{currentKeg.brand}}</li>
@@ -17,10 +17,11 @@ import { Keg } from './keg.model';
   <li>{{currentKeg.abv}} % ABV</li>
   <li>{{currentKeg.pints}} pints left in keg</li>
   </ol>
-  <button (click)="editButtonHasBeenClicked(currentKeg)"
+  <button class="btn btn-danger" (click)="editButtonHasBeenClicked(currentKeg)"
   >Edit Keg</button>
-  <button (click)="sellPintButtonHasBeenClicked(currentKeg)"
+  <button class="btn btn-info" (click)="sellPintButtonHasBeenClicked(currentKeg)"
   >Sell a Pint</button>
+  </div>
   `
 })
 

@@ -5,27 +5,27 @@ import { Keg } from './keg.model';
   selector: 'edit-keg',
   template: `
   <div *ngIf='childSelectedKeg'>
-    <h1>Edit Keg</h1>
+    <h3>Edit Keg</h3>
     <div>
       <label>Edit name</label>
-      <input
+      <input class="form-control"
       [(ngModel)]="childSelectedKeg.name">
     </div>
     <div>
       <label>Edit brand</label>
-      <input
+      <input class="form-control"
       [(ngModel)]="childSelectedKeg.brand">
     </div>
     <div>
       <label>Edit price</label>
-      <input type="number"
+      <input class="form-control" type="number"
       [(ngModel)]="childSelectedKeg.price">
     </div>
     <div>
       <label>Edit ABV</label>
-      <input type="number"
+      <input class="form-control" type="number"
       [(ngModel)]="childSelectedKeg.abv">
-      <button
+      <button class="btn btn-danger"
       (click)="doneClicked()">Done</button>
     </div>
   </div>
