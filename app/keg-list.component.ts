@@ -5,11 +5,15 @@ import { Keg } from './keg.model';
 @Component ({
   selector: 'keg-list',
   template: `
-  <div *ngFor="let currentKeg of childKegList">
-  <h3>{{currentKeg.name}}</h3>
+  <select (change)="onChange($event.target.value)">
+    <option value="underTen">Show Kegs w/ under 10 Pints</option>
+    <option value="showAll" selected="selected">Show All Kegs</option>
+  </select>
+  <div *ngFor="let currentKeg of childKegList | almostEmpty:selectedLevel">
+  <h3 [ngClass]="{lessThanFive: currentKeg.price <= 5, greaterThanFive: currentKeg.price > 5 }">{{currentKeg.name}}</h3>
   <ol>
   <li> Brand - {{currentKeg.brand}}</li>
-  <li> $ {{currentKeg.price}} per pint</li>
+  <li [ngClass]="{lessThanFive: currentKeg.price <= 5, greaterThanFive: currentKeg.price > 5 }"> $ {{currentKeg.price}} per pint</li>
   <li>{{currentKeg.abv}} % ABV</li>
   <li>{{currentKeg.pints}} pints left in keg</li>
   </ol>
@@ -21,6 +25,7 @@ import { Keg } from './keg.model';
 })
 
 export class KegListComponent {
+  public selectedLevel: string = "showAll";
   @Input() childKegList: Keg[];
   @Output() clickSender =
   new EventEmitter();
@@ -31,5 +36,9 @@ export class KegListComponent {
   }
   sellPintButtonHasBeenClicked(kegToEdit: Keg) {
     this.clickSellSender.emit(kegToEdit);
+  }
+  onChange(optionFromMenu) {
+    this.selectedLevel = optionFromMenu;
+    console.log(this.selectedLevel);
   }
 }
