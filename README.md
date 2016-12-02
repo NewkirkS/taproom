@@ -1,4 +1,4 @@
-# _tapRoom_
+# _Tap Room_
 
 #### _10-18-16_
 
@@ -6,13 +6,9 @@
 
 ## Description
 
-_This is a Tap Room app._
+_Allows users to track kegs for a fictional taproom._
 
-## Specifications
 
-| Behavior      | Input       |Output|
-| ------------- |-------------| -----|
-| Do stuff | Pizza | Magic Pizza |
 
 ## Setup/Installation Requirements
 
